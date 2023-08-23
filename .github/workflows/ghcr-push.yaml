@@ -21,13 +21,13 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Get image tag
-        run: echo "GITHUB_SHA=$GITHUB_SHA" >> $GITHUB_ENV
+        run: echo "GITHUB_SHA=$GITHUB_SHA" > .env.local
       - name: Set release repo
-        run: echo "IMAGE_REPOSITORY=ghcr.io/${{ github.repository_owner }}/mcad_dashboard:$GITHUB_SHA" >> $GITHUB_ENV
+        run: echo "IMAGE_REPOSITORY=ghcr.io/${{ github.repository_owner }}/mcad_dashboard:$GITHUB_SHA" >> .env.local 
       - name: Build image
-        run: make build IMAGE_RESPOSITORY=${{ IMAGE_REPOSITORY }}
+        run: make build -f .env.local
       - name: Push image
-        run: make push IMAGE_REPOSITORY=${{ IMAGE_REPOSITORY }}
+        run: make push -f .env.local
       - name: Print job result
         run: |
           cat <<EOF >>"${GITHUB_STEP_SUMMARY}"
