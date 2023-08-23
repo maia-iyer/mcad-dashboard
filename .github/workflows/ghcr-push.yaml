@@ -25,9 +25,9 @@ jobs:
       - name: Set release repo
         run: echo "IMAGE_REPOSITORY=ghcr.io/${{ github.repository_owner }}/mcad_dashboard:$GITHUB_SHA" >> .env.local 
       - name: Build image
-        run: make build -f .env.local
+        run: make build
       - name: Push image
-        run: make push -f .env.local
+        run: make push
       - name: Print job result
         run: |
           cat <<EOF >>"${GITHUB_STEP_SUMMARY}"
