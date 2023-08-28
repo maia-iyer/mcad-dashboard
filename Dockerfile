@@ -48,6 +48,10 @@ COPY --chown=default:root /backend/src/routes/api/appwrappers/appwrapper_puller.
 COPY --chown=default:root /backend/src/routes/api/mcad-prometheus/get-route.sh ./src/routes/api/mcad-prometheus/get-route.sh
 COPY --chown=default:root /backend/src/routes/api/metrics-data/get-route.sh ./src/routes/api/metrics-data/get-route.sh
 
+# TEMPORARY add kubectl
+RUN curl -k -LO "https://dl.k8s.io/release/$(curl -k -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+RUN chmod +x ./kubectl
+RUN mv ./kubectl /usr/local/bin
 
 CMD ["npm", "run", "start"]
 
