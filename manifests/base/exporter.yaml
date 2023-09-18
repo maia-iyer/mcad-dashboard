@@ -92,7 +92,7 @@ rules:
       - get
       - list
     apiGroups:
-      - workload.codeflare.dev
+      - mcad.ibm.com
     resources:
       - appwrappers
 
@@ -106,7 +106,7 @@ rules:
       - get
       - list
     apiGroups:
-      - workload.codeflare.dev
+      - mcad.ibm.com
     resources:
       - appwrappers
 ---
