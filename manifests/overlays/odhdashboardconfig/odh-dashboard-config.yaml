@@ -6,11 +6,11 @@ metadata:
   name: odh-dashboard-config
 spec:
   dashboardConfig:
-    disableBYONImageStream: false
-    disableClusterManager: false
-    disableISVBadges: false
-    disableInfo: false
-    disableSupport: false
+    disableBYONImageStream: true
+    disableClusterManager: true
+    disableISVBadges: true
+    disableInfo: true
+    disableSupport: true
     disableTracking: true
     enablement: true
     disableProjects: true
@@ -20,33 +20,7 @@ spec:
     disableCustomServingRuntimes: true
     modelMetricsNamespace: ''
   notebookController:
-    enabled: true
-  notebookSizes:
-    - name: Small
-      resources:
-        limits:
-          cpu: "2"
-          memory: 2Gi
-        requests:
-          cpu: "1"
-          memory: 1Gi
-    - name: Medium
-      resources:
-        limits:
-          cpu: "4"
-          memory: 4Gi
-        requests:
-          cpu: "2"
-          memory: 2Gi
-    - name: Large
-      resources:
-        limits:
-          cpu: "8"
-          memory: 8Gi
-        requests:
-          cpu: "4"
-          memory: 4Gi
-  modelServerSizes:
+    enabled: false
     - name: Small
       resources:
         limits:
