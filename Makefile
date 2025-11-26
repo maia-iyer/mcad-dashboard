@@ -10,7 +10,7 @@ include ${ENV_FILE}
 export $(shell sed 's/=.*//' ${ENV_FILE})
 endif
 
-CONTAINER_BUILDER ?= podman
+CONTAINER_BUILDER ?= docker
 CONTAINER_DOCKERFILE=Dockerfile
 EXPORTER_DOCKERFILE=Dockerfile.exporter
 
@@ -32,7 +32,7 @@ build:
 .PHONY: build-exporter
 build-exporter:
 	echo "Building ${EXPORTER_IMAGE_TAG} from ${EXPORTER_DOCKERFILE}"
-	${CONTAINER_BUILDER} build -f ${EXPORTER_DOCKERFILE} -t ${EXPORTER_IMAGE_TAG} .
+	${CONTAINER_BUILDER} build --load -f ${EXPORTER_DOCKERFILE} -t ${EXPORTER_IMAGE_TAG} .
 
 ##################################
 
